@@ -19,6 +19,7 @@ public class RedisConfig {
 	public  RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory){
 		RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
 		template.setConnectionFactory(factory);
+		template.setEnableTransactionSupport(true);
 		Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
 		ObjectMapper om = new ObjectMapper();
 		om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
