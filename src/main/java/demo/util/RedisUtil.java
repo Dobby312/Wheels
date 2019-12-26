@@ -96,10 +96,18 @@ public class RedisUtil {
 	 */
 	public boolean set(String key, Object value) {
 		try {
+			//开启事务
+			//redisTemplate.multi();
+			//可以同时执行多个指令
 			redisTemplate.opsForValue().set(key, value);
+			
+			//成功就提交
+			//redisTemplate.exec();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			//失败就回滚
+			//redisTemplate.discard();
 			return false;
 		}
 	}
