@@ -355,4 +355,21 @@ public class RedisUtil {
 			return false;
 		}
 	}
+//=================================================分布式锁========================================
+	/**
+	 * redis 设置分布式锁
+	 * @author Dobby
+	 * Dec 30, 2019
+	 */
+	public boolean setNx(String key, Object value,long time) {
+		
+		return redisTemplate.opsForValue().setIfAbsent(key, value, time, TimeUnit.SECONDS);
+//		通过Redis事务处理
+//		redisTemplate.multi();
+//		redisTemplate.opsForValue().setIfAbsent(key,value);
+//		redisTemplate.expire(key,2, TimeUnit.SECONDS);
+//      List result = redisTemplate.exec();
+//		return result
+
+	}
 }
