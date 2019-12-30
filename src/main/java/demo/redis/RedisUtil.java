@@ -13,7 +13,9 @@ import org.springframework.util.CollectionUtils;
 /**
  * @author Dobby
  *
- *         Dec 24, 2019
+ * Dec 24, 2019
+ * 
+ * redis工具类
  */
 @Component
 public class RedisUtil {
